@@ -1,5 +1,6 @@
 export default {
-  ONBOARDING: 'Login',
-  PAYWALL_SCREEN: 'SignUp',
-  HOME_SCREEN: 'HomePage',
+  GETTING_STARTED: 'Getting Started',
+  ONBOARDING: 'Onboarding',
+  PAYWALL_SCREEN: 'Paywall Screen',
+  HOME_SCREEN: 'Home Screen',
 };

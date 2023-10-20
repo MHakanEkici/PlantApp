@@ -6,11 +6,12 @@ import {Dimensions, Image, StyleSheet} from 'react-native';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import PaywallScreen from '../screens/PaywallScreen';
 import Onboarding from '../screens/Onboarding/Onboarding';
+import GettingStarted from '../screens/GettingStarted';
 
 export default function NavigationContainter() {
   const Stack = createStackNavigator();
 
-  const [isOnboardSkipped, setIsOnboardSkipped] = useState(true);
+  const [isOnboardSkipped, setIsOnboardSkipped] = useState(false);
 
   useEffect(() => {
     //TODO isOnboardSkipped
@@ -33,11 +34,18 @@ export default function NavigationContainter() {
             />
           </>
         ) : (
-          <Stack.Screen
-            name={routes.ONBOARDING}
-            component={Onboarding}
-            options={{headerShown: false}}
-          />
+          <>
+            <Stack.Screen
+              name={routes.GETTING_STARTED}
+              component={GettingStarted}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name={routes.ONBOARDING}
+              component={Onboarding}
+              options={{headerShown: false}}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
