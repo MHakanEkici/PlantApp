@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import OnboardingTemplete from '../../components/OnboardingTemplete';
 import routes from '../../navigation/routes';
-import useCategories from '../../hooks/useCategories';
 import styles from './GettingStarted.style';
 
 const pageData = {
@@ -12,12 +11,8 @@ const pageData = {
 };
 
 export default function GettingStarted({navigation}) {
-  const {categoryData, categoryLoading, categoryError} = useCategories();
-
   function onGetStartedPressed() {
-    console.log(categoryData);
-    console.log(categoryLoading);
-    console.log(categoryError);
+    navigation.navigate(routes.ONBOARDING);
   }
 
   return (

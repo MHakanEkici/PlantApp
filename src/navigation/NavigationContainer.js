@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import onboardingConstants from '../redux/constants/onboardingConstants';
 import routes from './routes';
 
+import HomeTab from './HomeTab';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import PaywallScreen from '../screens/PaywallScreen';
 import Onboarding from '../screens/Onboarding/Onboarding';
@@ -42,18 +43,11 @@ export default function NavigationContainter() {
     <NavigationContainer>
       <Stack.Navigator>
         {isOnboardSkipped ? (
-          <>
-            <Stack.Screen
-              name={routes.HOME_SCREEN}
-              component={HomeScreen}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name={routes.PAYWALL_SCREEN}
-              component={PaywallScreen}
-              options={{headerShown: false}}
-            />
-          </>
+          <Stack.Screen
+            name={routes.HOME_TAB}
+            component={HomeTab}
+            options={{headerShown: false}}
+          />
         ) : (
           <>
             <Stack.Screen
