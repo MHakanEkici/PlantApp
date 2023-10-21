@@ -1,18 +1,14 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import colors from '../../styles/colors';
-import fontSizes from '../../styles/fontSizes';
-import radius from '../../styles/radius';
-import spacing from '../../styles/spacing';
+import colors from '../../constants/styles/colors';
+import fontSizes from '../../constants/styles/fontSizes';
+import radius from '../../constants/styles/radius';
+import spacing from '../../constants/styles/spacing';
 
 const {height, width} = Dimensions.get('window');
 
 export default StyleSheet.create({
-  container_image: {
-    flex: 1,
-  },
   container: {
     flex: 1,
-    alignItems: 'center',
   },
   image: {
     width: width,

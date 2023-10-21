@@ -4,16 +4,17 @@ import DeviceInfo from 'react-native-device-info';
 const {height, width} = Dimensions.get('window');
 const hasNotch = DeviceInfo.hasNotch();
 
-import colors from '../../styles/colors';
-import fontSizes from '../../styles/fontSizes';
-import radius from '../../styles/radius';
-import spacing from '../../styles/spacing';
+import colors from '../../constants/styles/colors';
+import fontSizes from '../../constants/styles/fontSizes';
+import radius from '../../constants/styles/radius';
+import spacing from '../../constants/styles/spacing';
 
 export default StyleSheet.create({
   container: {
-    padding: 10,
+    padding: spacing.card_padding,
     borderRadius: radius.main,
     alignItems: 'center',
+    alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: colors.theme,
     width: width * 0.9,

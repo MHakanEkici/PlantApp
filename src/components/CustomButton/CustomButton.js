@@ -5,7 +5,10 @@ import styles from './CustomButton.style';
 
 export default function CustomButton({label, ...otherProps}) {
   return (
-    <TouchableOpacity style={styles.container} {...otherProps}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.8}
+      {...otherProps}>
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
   );

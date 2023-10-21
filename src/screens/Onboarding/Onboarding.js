@@ -12,6 +12,8 @@ import styles from './Onboarding.style';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import OnboardingTemplete from '../../components/OnboardingTemplete';
 import CustomButton from '../../components/CustomButton';
+import routes from '../../navigation/routes';
+import onboardingPagesData from '../../constants/OnboardingPagesData';
 
 const {height, width} = Dimensions.get('window');
 
@@ -19,21 +21,10 @@ export default function Onboardingg({navigation}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [refC, setRefC] = useState();
 
-  const onboardingPagesData = [
-    {
-      backgroundImage: require('../../assets/onboarding/GettingStartedBackground.png'),
-      image: require('../../assets/onboarding/Onboarding1Image.png'),
-      text: require('../../assets/onboarding/Onboarding1Text.png'),
-    },
-    {
-      backgroundImage: require('../../assets/onboarding/GettingStartedBackground.png'),
-      image: require('../../assets/onboarding//Onboarding2Image.png'),
-      text: require('../../assets/onboarding/Onboarding2Text.png'),
-    },
-  ];
-
   function onContinuePressed() {
-    refC.snapToNext();
+    selectedIndex + 1 === onboardingPagesData.length
+      ? navigation.navigate(routes.PAYWALL_SCREEN)
+      : refC.snapToNext();
   }
 
   const carouselItem = ({item, index}) => (
@@ -46,35 +37,19 @@ export default function Onboardingg({navigation}) {
   );
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <Carousel
         data={onboardingPagesData}
         sliderWidth={width}
         sliderHeight={height}
         ref={ref => setRefC(ref)}
         scrollEnabled={false}
-        // onLayout={() => {
-        //   refC.snapToItem(focused);
-        // }}
         itemWidth={width}
         itemHeight={height}
         pagingEnabled={true}
-        //   activeSlideAlignment={'start'}
         onSnapToItem={event => {
-          // console.log(
-          //   'focused offer from carousel' + JSON.stringify(data[event]),
-          // );
           setSelectedIndex(event);
         }}
-        // onBeforeSnapToItem={event => {
-        //   console.log(
-        //     '(onBeforeSnapToItem) - focused offer from carousel' +
-        //       JSON.stringify(data[event]),
-        //   );
-        //   setSelectedIndex(event);
-
-        //   onFocused(data[event]);
-        // }}
         renderItem={carouselItem}
       />
       <Pagination
