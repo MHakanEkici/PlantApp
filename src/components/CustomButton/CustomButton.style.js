@@ -18,9 +18,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.theme,
     width: width * 0.9,
-    height: (width + height) * 0.045,
+    height: (width + height) * 0.048,
     zIndex: 1,
-    bottom: (height + width) * 0.08,
+    bottom:
+      Platform.OS === 'ios' && hasNotch
+        ? (height + width) * 0.05 + 10
+        : (height + width) * 0.05,
     position: 'absolute',
   },
   label: {

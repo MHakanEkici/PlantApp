@@ -1,8 +1,9 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
 import colors from '../../constants/styles/colors';
 import fontSizes from '../../constants/styles/fontSizes';
 import radius from '../../constants/styles/radius';
 import spacing from '../../constants/styles/spacing';
+import {hasNotch} from 'react-native-device-info';
 
 const {height, width} = Dimensions.get('window');
 
@@ -25,7 +26,7 @@ export default StyleSheet.create({
   pagination_container: {
     position: 'absolute',
     zIndex: 1,
-    bottom: (height + width) * 0.015,
+    bottom: Platform.OS === 'ios' && hasNotch ? (height + width) * 0.015 : 0,
     alignSelf: 'center',
   },
   pagination_dot: {

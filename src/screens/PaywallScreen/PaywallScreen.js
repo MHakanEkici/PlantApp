@@ -6,9 +6,27 @@ import CustomButton from '../../components/CustomButton';
 import Features from '../../components/Features';
 import PremiumOptionSection from '../../components/PremiumOptionSection';
 import IconButton from '../../components/IconButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useDispatch} from 'react-redux';
+import onboardingConstants from '../../redux/constants/onboardingConstants';
 
 export default function PaywallScreen() {
   const [selectedPremiumOption, setSelectedPremiumOption] = useState('year');
+
+  const dispatch = useDispatch();
+
+  async function handleSetOnboardingSkipped() {
+    dispatch({
+      type: onboardingConstants.SET_IS_ONBOARDING_SKIPPED,
+      payload: true,
+    });
+    try {
+      await AsyncStorage.setItem('isOnboardSkipped', 'true');
+      console.warn('kaydedildi');
+    } catch (e) {
+      console.warn('Error on saving isOnboardSkipped');
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -35,7 +53,7 @@ export default function PaywallScreen() {
       <CustomButton label={'Try free for 3 days'} onPress={null} />
       <IconButton
         iconName={'close'}
-        onPress={null}
+        onPress={handleSetOnboardingSkipped}
         style={styles.close_button}
       />
     </View>

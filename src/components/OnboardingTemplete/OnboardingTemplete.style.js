@@ -14,6 +14,7 @@ export default StyleSheet.create({
     width: width,
   },
   textImage: {
+    marginTop: 15,
     alignSelf: 'flex-start',
     marginLeft: spacing.left_main,
   },

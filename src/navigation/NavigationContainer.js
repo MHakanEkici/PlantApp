@@ -1,6 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useDispatch, useSelector} from 'react-redux';
+import onboardingConstants from '../redux/constants/onboardingConstants';
 import routes from './routes';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
@@ -11,11 +15,28 @@ import GettingStarted from '../screens/GettingStarted';
 export default function NavigationContainter() {
   const Stack = createStackNavigator();
 
-  const [isOnboardSkipped, setIsOnboardSkipped] = useState(false);
+  const {isOnboardSkipped} = useSelector(state => state.onboardingReducer);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    //TODO isOnboardSkipped
-  });
+    checkIsOnboardSkipped();
+  }, [isOnboardSkipped]);
+
+  async function checkIsOnboardSkipped() {
+    try {
+      const onboardingSkipped = await AsyncStorage.getItem('isOnboardSkipped');
+      if (onboardingSkipped === null) {
+        console.warn('Okundu ' + onboardingSkipped);
+        dispatch({
+          type: onboardingConstants.SET_IS_ONBOARDING_SKIPPED,
+          payload: false,
+        });
+      }
+    } catch (e) {
+      console.log('Failed to fetch the input from storage' + e);
+    }
+  }
 
   return (
     <NavigationContainer>

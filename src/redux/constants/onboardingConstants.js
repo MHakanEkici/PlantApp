@@ -1,0 +1,3 @@
+export default {
+  SET_IS_ONBOARDING_SKIPPED: 'SET_IS_ONBOARDING_SKIPPED',
+};

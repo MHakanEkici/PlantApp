@@ -1,10 +1,11 @@
-import {categoryReducer, questionReducer} from '../reducers';
+import {categoryReducer, questionReducer, onboardingReducer} from '../reducers';
 
 import {combineReducers, createStore} from 'redux';
 
 const rootReducer = combineReducers({
   categoryReducer,
   questionReducer,
+  onboardingReducer,
 });
 
 const configureStore = () => {

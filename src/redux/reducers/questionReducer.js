@@ -1,4 +1,4 @@
-import constant from '../constants//questionConstant';
+import constant from '../constants/questionConstant';
 
 const initialState = {
   questions: [],

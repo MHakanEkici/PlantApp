@@ -20,7 +20,7 @@ export default function OnboardingTemplete({
   return item.backgroundImage ? (
     <ImageBackground
       source={item.backgroundImage}
-      resizeMode="contain"
+      resizeMode="cover"
       style={styles.container}>
       {pageComponent}
     </ImageBackground>
