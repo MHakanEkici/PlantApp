@@ -5,6 +5,9 @@ import {
   Image,
   StyleSheet,
   Platform,
+  ImageBackground,
+  Text,
+  SafeAreaView,
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import DeviceInfo from 'react-native-device-info';
@@ -17,6 +20,7 @@ import colors from '../constants/styles/colors';
 import radius from '../constants/styles/radius';
 
 import HomeScreen from '../screens/HomeScreen';
+import HomeScreenHeader from '../components/HomeScreenHeader';
 
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
@@ -44,7 +48,9 @@ const TabBarIonicon = (rest, iconName) => (
   <Ionicons name={iconName} size={width * 0.06} {...rest} />
 );
 
-export default function MainTab() {
+const Header = () => <HomeScreenHeader />;
+
+export default function HomeTab() {
   const Tab = createBottomTabNavigator();
 
   return (
@@ -52,7 +58,6 @@ export default function MainTab() {
       screenOptions={({route}) => ({
         tabBarActiveTintColor: colors.theme,
         tabBarInactiveTintColor: '#BDBDBD',
-        headerShown: false,
       })}>
       <Tab.Screen
         name={routes.HOME_SCREEN}
@@ -60,6 +65,9 @@ export default function MainTab() {
         options={{
           tabBarIcon: ({size, ...rest}) => TabBarIonicon(rest, 'albums'),
           tabBarLabel: 'Home',
+          title: '',
+          headerBackground: Header,
+          headerBackgroundContainerStyle: styles.header_container,
         }}
       />
       <Tab.Screen
@@ -121,5 +129,8 @@ const styles = StyleSheet.create({
   icon_style: {
     width: (height + width) * 0.025,
     height: (height + width) * 0.025,
+  },
+  header_container: {
+    height: height * 0.24,
   },
 });
