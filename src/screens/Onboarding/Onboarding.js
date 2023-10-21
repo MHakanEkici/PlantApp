@@ -1,19 +1,11 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  SafeAreaView,
-  Image,
-  Button,
-  Dimensions,
-} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import React, {useState} from 'react';
-import styles from './Onboarding.style';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import OnboardingTemplete from '../../components/OnboardingTemplete';
-import CustomButton from '../../components/CustomButton';
 import routes from '../../navigation/routes';
 import onboardingPagesData from '../../constants/OnboardingPagesData';
+import styles from './Onboarding.style';
+
+import Carousel, {Pagination} from 'react-native-snap-carousel';
+import OnboardingTemplete from '../../components/OnboardingTemplete';
 
 const {height, width} = Dimensions.get('window');
 

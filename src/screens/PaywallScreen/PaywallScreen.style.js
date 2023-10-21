@@ -32,15 +32,9 @@ export default StyleSheet.create({
     marginTop: height * 0.01,
   },
   close_button: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     zIndex: 1,
-    width: (width + height) * 0.03,
-    height: (width + height) * 0.03,
     top: height * 0.06,
     right: width * 0.1,
     position: 'absolute',
-    borderRadius: radius.circle,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

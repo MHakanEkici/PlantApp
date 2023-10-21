@@ -1,8 +1,8 @@
+import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import React, {useEffect, useState} from 'react';
 import routes from './routes';
-import {Dimensions, Image, StyleSheet} from 'react-native';
+
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import PaywallScreen from '../screens/PaywallScreen';
 import Onboarding from '../screens/Onboarding/Onboarding';

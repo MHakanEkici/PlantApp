@@ -1,8 +1,6 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import OnboardingTemplete from '../../components/OnboardingTemplete';
 import routes from '../../navigation/routes';
-import {StackActions} from '@react-navigation/native';
 
 const pageData = {
   backgroundImage: require('../../assets/onboarding/GettingStartedBackground.png'),

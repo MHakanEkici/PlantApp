@@ -1,8 +1,9 @@
-import {View, Text, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import React from 'react';
-import FeatureCard from '../Cards/FeatureCard';
 import featuresData from '../../constants/FeaturesData';
 import styles from './Features.style.js';
+
+import FeatureCard from '../Cards/FeatureCard';
 
 export default function Features() {
   return (

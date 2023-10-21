@@ -1,20 +1,11 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  Image,
-  SafeAreaView,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import React, {useState} from 'react';
 import styles from './PaywallScreen.style';
+
 import CustomButton from '../../components/CustomButton';
 import Features from '../../components/Features';
 import PremiumOptionSection from '../../components/PremiumOptionSection';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const {height, width} = Dimensions.get('window');
+import IconButton from '../../components/IconButton';
 
 export default function PaywallScreen() {
   const [selectedPremiumOption, setSelectedPremiumOption] = useState('year');
@@ -42,12 +33,11 @@ export default function PaywallScreen() {
         />
       </View>
       <CustomButton label={'Try free for 3 days'} onPress={null} />
-      <TouchableOpacity
-        style={styles.close_button}
+      <IconButton
+        iconName={'close'}
         onPress={null}
-        activeOpacity={0.5}>
-        <Icon name="close" size={(width + height) * 0.02} color={'white'} />
-      </TouchableOpacity>
+        style={styles.close_button}
+      />
     </View>
   );
 }

@@ -1,17 +1,8 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  Dimensions,
-  Image,
-  Platform,
-  SafeAreaView,
-} from 'react-native';
-import React, {useState} from 'react';
+import {ImageBackground, Image, SafeAreaView} from 'react-native';
+import React from 'react';
 import styles from './OnboardingTemplete.style';
-import CustomButton from '../CustomButton';
 
-const {height, width} = Dimensions.get('window');
+import CustomButton from '../CustomButton';
 
 export default function OnboardingTemplete({
   item,
