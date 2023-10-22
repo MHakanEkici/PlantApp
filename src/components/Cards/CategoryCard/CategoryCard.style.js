@@ -20,14 +20,12 @@ export default StyleSheet.create({
   image_style: {
     borderRadius: radius.main,
   },
-  label_container: {
-    width: (height + width) * 0.1,
-    padding: spacing.card_padding,
-  },
   label: {
     color: colors.text,
+    width: (height + width) * 0.12,
     fontSize: fontSizes.text,
     flexWrap: 'wrap',
     fontWeight: '500',
+    padding: spacing.card_padding,
   },
 });

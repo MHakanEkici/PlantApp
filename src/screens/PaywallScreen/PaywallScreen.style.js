@@ -26,6 +26,11 @@ export default StyleSheet.create({
     fontSize: fontSizes.title,
     fontWeight: 'bold',
   },
+  title_secondary: {
+    color: 'white',
+    fontSize: fontSizes.title,
+    fontWeight: '300',
+  },
   subtitle: {
     color: 'rgba(255, 255, 255, 0.7)',
     fontSize: fontSizes.textBig,
@@ -36,5 +41,26 @@ export default StyleSheet.create({
     top: height * 0.06,
     right: width * 0.1,
     position: 'absolute',
+  },
+  info: {
+    bottom: (height + width) * 0.03,
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    textAlign: 'center',
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: fontSizes.textSmall - 3.5,
+    paddingHorizontal: spacing.left_main,
+    position: 'absolute',
+  },
+  text: {
+    bottom: (height + width) * 0.013,
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    textAlign: 'center',
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: fontSizes.textSmall - 1,
+    paddingHorizontal: spacing.left_main,
+    position: 'absolute',
+    fontWeight: '500',
   },
 });

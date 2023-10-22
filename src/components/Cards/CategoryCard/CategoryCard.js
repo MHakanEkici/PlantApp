@@ -15,11 +15,9 @@ export default function CategoryCard({image, name, onPress}) {
         }}
         style={styles.container_image}
         imageStyle={styles.image_style}>
-        <View style={styles.label_container}>
-          <Text style={styles.label} numberOfLines={2}>
-            {name}
-          </Text>
-        </View>
+        <Text style={styles.label} numberOfLines={2}>
+          {name}
+        </Text>
       </ImageBackground>
     </TouchableOpacity>
   );

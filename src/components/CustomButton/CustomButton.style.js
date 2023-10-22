@@ -22,7 +22,7 @@ export default StyleSheet.create({
     zIndex: 1,
     bottom:
       Platform.OS === 'ios' && hasNotch
-        ? (height + width) * 0.05 + 10
+        ? (height + width) * 0.05 + 15
         : (height + width) * 0.05,
     position: 'absolute',
   },

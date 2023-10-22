@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, SafeAreaView} from 'react-native';
+import {View, Text, ScrollView, SafeAreaView, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useCategories from '../../hooks/useCategories';
 import useQuestions from '../../hooks/useQuestions';
@@ -8,13 +8,14 @@ import PremiumOfferCard from '../../components/Cards/PremiumOfferCard';
 import QuestionCard from '../../components/Cards/QuestionCard';
 import CategoryCard from '../../components/Cards/CategoryCard';
 import Loading from '../../components/Loading';
+import AppText from '../../constants/AppText';
 
 export default function HomeScreen() {
   const [categoryList, setCategoryList] = useState([]);
   const [questionList, setQuestionList] = useState([]);
 
-  const {categoryData, categoryLoading, categoryError} = useCategories();
-  const {questionData, questionLoading, questionError} = useQuestions();
+  const {categoryData, categoryLoading, categoryError} = useCategories(onError);
+  const {questionData, questionLoading, questionError} = useQuestions(onError);
 
   useEffect(() => {
     setCategoryList(categoryData);
@@ -24,6 +25,14 @@ export default function HomeScreen() {
     setQuestionList(questionData);
   }, [questionData]);
 
+  function onError(error) {
+    Alert.alert(
+      'Server Error',
+      'There was a problem on the server. Please try again later.',
+    );
+    console.error(error);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -31,7 +40,7 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
         bounces={false}>
         <PremiumOfferCard />
-        <Text style={styles.title}>Get Started</Text>
+        <Text style={styles.title}>{AppText.GetStarted}</Text>
 
         {questionLoading ? (
           <Loading />

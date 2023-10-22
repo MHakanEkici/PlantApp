@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Config from 'react-native-config';
 
 const URL = `${Config.API_URL}/getQuestions`;
 
-export default function useQuestions() {
+export default function useQuestions(onError) {
   const [questionData, setQuestionData] = useState([]);
   const [questionError, setQuestionError] = useState(null);
   const [questionLoading, setQuestionLoading] = useState(true);
@@ -16,6 +17,7 @@ export default function useQuestions() {
       setQuestionData(response.data);
     } catch (error) {
       setQuestionError(error);
+      onError(error);
     } finally {
       setQuestionLoading(false);
     }

@@ -9,6 +9,7 @@ import IconButton from '../../components/IconButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import onboardingConstants from '../../redux/constants/onboardingConstants';
+import AppText from '../../constants/AppText';
 
 export default function PaywallScreen() {
   const [selectedPremiumOption, setSelectedPremiumOption] = useState('year');
@@ -22,7 +23,6 @@ export default function PaywallScreen() {
     });
     try {
       await AsyncStorage.setItem('isOnboardSkipped', 'true');
-      console.warn('kaydedildi');
     } catch (e) {
       console.warn('Error on saving isOnboardSkipped');
     }
@@ -37,25 +37,28 @@ export default function PaywallScreen() {
       />
       <View style={styles.frame}>
         <Text style={styles.title}>
-          PlantApp
-          <Text style={{color: 'white', fontSize: 30, fontWeight: '300'}}>
-            {' '}
-            Premium
-          </Text>
+          {AppText.PlantAppPremium1}
+          <Text style={styles.title_secondary}>{AppText.PlantAppPremium2}</Text>
         </Text>
-        <Text style={styles.subtitle}>Access All Featrues</Text>
+        <Text style={styles.subtitle}>{AppText.AccessAllFeatures}</Text>
         <Features />
         <PremiumOptionSection
           selectedPremiumOption={selectedPremiumOption}
           setSelectedPremiumOption={setSelectedPremiumOption}
         />
       </View>
-      <CustomButton label={'Try free for 3 days'} onPress={null} />
+      <CustomButton label={AppText.TryFree} onPress={null} />
       <IconButton
         iconName={'close'}
         onPress={handleSetOnboardingSkipped}
         style={styles.close_button}
       />
+      <Text style={styles.info} onPress={null}>
+        {AppText.PaywallScreenInfo1}
+      </Text>
+      <Text style={styles.text} onPress={null}>
+        {AppText.PaywallScreenInfo2}
+      </Text>
     </View>
   );
 }

@@ -27,7 +27,6 @@ export default function NavigationContainter() {
     try {
       const onboardingSkipped = await AsyncStorage.getItem('isOnboardSkipped');
       if (onboardingSkipped === null) {
-        console.warn('Okundu ' + onboardingSkipped);
         dispatch({
           type: onboardingConstants.SET_IS_ONBOARDING_SKIPPED,
           payload: false,

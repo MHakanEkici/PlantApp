@@ -33,7 +33,7 @@ const CustomTabBarIcon = () => (
   <Image
     resizeMode="contain"
     style={styles.image}
-    source={require('../assets/ScanButton.png')}
+    source={require('../assets/Icons/ScanButton.png')}
   />
 );
 

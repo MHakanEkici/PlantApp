@@ -8,7 +8,7 @@ const {height, width} = Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     borderRadius: radius.main,
-    width: (height + width) * 0.2,
+    width: (height + width) * 0.21,
     height: (height + width) * 0.15,
     marginRight: spacing.left_main / 2,
   },

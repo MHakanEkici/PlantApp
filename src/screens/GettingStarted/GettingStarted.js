@@ -1,8 +1,10 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import OnboardingTemplete from '../../components/OnboardingTemplete';
 import routes from '../../navigation/routes';
 import styles from './GettingStarted.style';
+
+import OnboardingTemplete from '../../components/OnboardingTemplete';
+import AppText from '../../constants/AppText';
 
 const pageData = {
   backgroundImage: require('../../assets/onboarding/GettingStartedBackground.png'),
@@ -19,17 +21,17 @@ export default function GettingStarted({navigation}) {
     <View style={styles.container}>
       <OnboardingTemplete
         item={pageData}
-        buttonText={'Get Started'}
+        buttonText={AppText.GetStarted}
         onButtonPressed={onGetStartedPressed}
       />
       <Text style={styles.text}>
-        {'By tapping next, you are agreeing to PlantID\n'}
+        {AppText.GettingStartedScreenText1}
         <Text style={styles.underlined_text} onPress={null}>
-          {'Terms of Use '}
+          {AppText.GettingStartedScreenText2}
         </Text>
-        &{' '}
+        {AppText.GettingStartedScreenText3}
         <Text style={styles.underlined_text} onPress={null}>
-          {'Privacy Policy.'}
+          {AppText.GettingStartedScreenText4}
         </Text>
       </Text>
     </View>
