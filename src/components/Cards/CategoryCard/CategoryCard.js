@@ -1,8 +1,8 @@
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import React from 'react';
-import styles from './QuestionCard.style';
+import styles from './CategoryCard.style';
 
-export default function QuestionCard({image, question, onPress}) {
+export default function CategoryCard({image, name, onPress}) {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -17,7 +17,7 @@ export default function QuestionCard({image, question, onPress}) {
         imageStyle={styles.image_style}>
         <View style={styles.label_container}>
           <Text style={styles.label} numberOfLines={2}>
-            {question}
+            {name}
           </Text>
         </View>
       </ImageBackground>

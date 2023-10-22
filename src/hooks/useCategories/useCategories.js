@@ -5,7 +5,7 @@ import Config from 'react-native-config';
 const URL = `${Config.API_URL}/getCategories`;
 
 export default function useCategories() {
-  const [categoryData, setCategoryData] = useState(null);
+  const [categoryData, setCategoryData] = useState([]);
   const [categoryError, setCategoryError] = useState(null);
   const [categoryLoading, setCategoryLoading] = useState(true);
 

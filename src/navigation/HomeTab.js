@@ -5,9 +5,6 @@ import {
   Image,
   StyleSheet,
   Platform,
-  ImageBackground,
-  Text,
-  SafeAreaView,
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import DeviceInfo from 'react-native-device-info';
@@ -84,12 +81,6 @@ export default function HomeTab() {
           tabBarIcon: CustomTabBarIcon,
           tabBarButton: props => CustomTabBarButton(props),
           tabBarLabel: '',
-        }}
-        listeners={{
-          tabPress: e => {
-            // Prevent default action - Navigasyonu engelleme
-            // e.preventDefault();
-          },
         }}
       />
       <Tab.Screen

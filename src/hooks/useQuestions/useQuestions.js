@@ -5,7 +5,7 @@ import Config from 'react-native-config';
 const URL = `${Config.API_URL}/getQuestions`;
 
 export default function useQuestions() {
-  const [questionData, setQuestionData] = useState(null);
+  const [questionData, setQuestionData] = useState([]);
   const [questionError, setQuestionError] = useState(null);
   const [questionLoading, setQuestionLoading] = useState(true);
 

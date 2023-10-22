@@ -8,7 +8,6 @@ import onboardingConstants from '../redux/constants/onboardingConstants';
 import routes from './routes';
 
 import HomeTab from './HomeTab';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import PaywallScreen from '../screens/PaywallScreen';
 import Onboarding from '../screens/Onboarding/Onboarding';
 import GettingStarted from '../screens/GettingStarted';
