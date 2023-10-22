@@ -1,7 +1,8 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
 import spacing from '../../constants/styles/spacing';
 import fontSizes from '../../constants/styles/fontSizes';
 import colors from '../../constants/styles/colors';
+import {hasNotch} from 'react-native-device-info';
 
 const {height, width} = Dimensions.get('window');
 
@@ -10,9 +11,10 @@ export default StyleSheet.create({
     flex: 1,
   },
   content_container: {
-    marginTop: height * 0.14,
+    marginTop:
+      Platform.OS === 'ios' && hasNotch ? height * 0.14 : height * 0.18,
     paddingLeft: spacing.left_main,
-    paddingBottom: height * 0.16,
+    paddingBottom: height * 0.2,
   },
   seperator: {
     width: width * 0.03,

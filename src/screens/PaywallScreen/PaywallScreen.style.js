@@ -1,8 +1,9 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
 import colors from '../../constants/styles/colors';
 import fontSizes from '../../constants/styles/fontSizes';
 import radius from '../../constants/styles/radius';
 import spacing from '../../constants/styles/spacing';
+import {hasNotch} from 'react-native-device-info';
 
 const {height, width} = Dimensions.get('window');
 
@@ -13,13 +14,13 @@ export default StyleSheet.create({
   },
   image: {
     width: width,
-    // position: 'absolute',
-    // zIndex: 1,
-    // top: 0,
+    position: 'absolute',
+    zIndex: -1,
+    top: 0,
   },
   frame: {
     marginLeft: spacing.left_main,
-    top: -height * 0.25,
+    top: Platform.OS === 'ios' && hasNotch ? height * 0.25 : height * 0.29,
   },
   title: {
     color: 'white',
@@ -43,17 +44,23 @@ export default StyleSheet.create({
     position: 'absolute',
   },
   info: {
-    bottom: (height + width) * 0.03,
+    bottom:
+      Platform.OS === 'ios' && hasNotch
+        ? (height + width) * 0.04
+        : (height + width) * 0.025,
     alignSelf: 'center',
     flexWrap: 'wrap',
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.5)',
-    fontSize: fontSizes.textSmall - 3.5,
+    fontSize: fontSizes.textSmall - 2.5,
     paddingHorizontal: spacing.left_main,
     position: 'absolute',
   },
   text: {
-    bottom: (height + width) * 0.013,
+    bottom:
+      Platform.OS === 'ios' && hasNotch
+        ? (height + width) * 0.02
+        : (height + width) * 0.005,
     alignSelf: 'center',
     flexWrap: 'wrap',
     textAlign: 'center',

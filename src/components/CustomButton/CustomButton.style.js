@@ -22,8 +22,8 @@ export default StyleSheet.create({
     zIndex: 1,
     bottom:
       Platform.OS === 'ios' && hasNotch
-        ? (height + width) * 0.05 + 15
-        : (height + width) * 0.05,
+        ? (height + width) * 0.07
+        : (height + width) * 0.055,
     position: 'absolute',
   },
   label: {

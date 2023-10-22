@@ -1,15 +1,15 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import onboardingConstants from '../../redux/constants/onboardingConstants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AppText from '../../constants/AppText';
 import styles from './PaywallScreen.style';
 
 import CustomButton from '../../components/CustomButton';
 import Features from '../../components/Features';
 import PremiumOptionSection from '../../components/PremiumOptionSection';
 import IconButton from '../../components/IconButton';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useDispatch} from 'react-redux';
-import onboardingConstants from '../../redux/constants/onboardingConstants';
-import AppText from '../../constants/AppText';
 
 export default function PaywallScreen() {
   const [selectedPremiumOption, setSelectedPremiumOption] = useState('year');
@@ -29,7 +29,7 @@ export default function PaywallScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={require('../../assets/PaywallBackground.png')}
         resizeMode="cover"
@@ -59,6 +59,6 @@ export default function PaywallScreen() {
       <Text style={styles.text} onPress={null}>
         {AppText.PaywallScreenInfo2}
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }

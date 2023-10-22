@@ -4,7 +4,6 @@ const {height, width} = Dimensions.get('window');
 
 export default {
   title: FontSizePercentage(3.7),
-  titleBig: FontSizePercentage(4.7),
   titleSmall: FontSizePercentage(2.7),
 
   text: FontSizePercentage(2),
@@ -23,7 +22,6 @@ function FontSizePercentage(percent) {
       : standardLength;
 
   const heightPercent = (percent * deviceHeight) / 100;
-  // return Math.round(heightPercent);
   return heightPercent;
 }
 

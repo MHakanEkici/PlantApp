@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: width,
+    alignSelf: 'center',
   },
   textImage: {
     marginTop: 15,

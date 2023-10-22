@@ -1,8 +1,11 @@
-import {ImageBackground, Image, SafeAreaView} from 'react-native';
+import {ImageBackground, Image, SafeAreaView, Dimensions} from 'react-native';
 import React from 'react';
+import ScalableImage from 'react-native-scalable-image';
 import styles from './OnboardingTemplete.style';
 
 import CustomButton from '../CustomButton';
+
+const {height, width} = Dimensions.get('window');
 
 export default function OnboardingTemplete({
   item,
@@ -11,8 +14,16 @@ export default function OnboardingTemplete({
 }) {
   const pageComponent = (
     <SafeAreaView style={styles.container}>
-      <Image resizeMode="contain" style={styles.textImage} source={item.text} />
-      <Image resizeMode="contain" style={styles.image} source={item.image} />
+      <ScalableImage
+        style={styles.textImage}
+        width={width * 0.9}
+        source={item.text}
+      />
+      <ScalableImage
+        style={styles.image}
+        width={width * 0.9}
+        source={item.image}
+      />
       <CustomButton label={buttonText} onPress={onButtonPressed} />
     </SafeAreaView>
   );
