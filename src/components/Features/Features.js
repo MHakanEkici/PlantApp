@@ -10,7 +10,8 @@ export default function Features() {
     <ScrollView
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.container}>
+      contentContainerStyle={styles.container}
+      bounces={false}>
       {featuresData.map((feature, index) => (
         <React.Fragment key={index}>
           <FeatureCard

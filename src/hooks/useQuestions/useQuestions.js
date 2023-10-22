@@ -13,12 +13,7 @@ export default function useQuestions() {
     try {
       setQuestionLoading(true);
       const response = await axios.get(URL);
-      console.log(response);
-      setQuestionData(
-        response.data.data.results.filter(
-          question => (question.notFavourite = true),
-        ),
-      );
+      setQuestionData(response.data);
     } catch (error) {
       setQuestionError(error);
     } finally {

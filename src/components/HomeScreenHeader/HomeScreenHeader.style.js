@@ -14,10 +14,10 @@ export default StyleSheet.create({
   header_text_small: {
     fontSize: fontSizes.text,
     marginLeft: spacing.left_main,
-    color: '#13231B',
+    color: colors.text,
   },
   header_text_big: {
-    color: '#13231B',
+    color: colors.text,
     fontSize: fontSizes.titleSmall,
     marginLeft: spacing.left_main,
     fontWeight: 'bold',
@@ -36,7 +36,7 @@ export default StyleSheet.create({
   input: {
     flex: 1,
     marginLeft: 10,
-    color: '#13231B',
+    color: colors.text,
     fontSize: fontSizes.text,
   },
 });
