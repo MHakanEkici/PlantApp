@@ -25,11 +25,11 @@ export default StyleSheet.create({
     color: colors.text,
     marginVertical: spacing.card_padding,
   },
+  categories_container: {
+    marginTop: spacing.card_padding * 2,
+  },
   category_list: {
-    marginVertical: spacing.card_padding,
-    justifyContent: 'space-between',
     paddingRight: spacing.left_main,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
 });

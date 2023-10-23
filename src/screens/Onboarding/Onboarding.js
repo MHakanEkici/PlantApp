@@ -25,15 +25,13 @@ export default function Onboardingg({navigation}) {
       item={item}
       buttonText={'Continue'}
       onButtonPressed={onContinuePressed}
-      key={index}
+      key={index.toString()}
     />
   );
 
   useEffect(() => {
     navigation.addListener('beforeRemove', e => {
-      // Prevent default behavior of leaving the screen
       e.preventDefault();
-      // Prompt the user before leaving the screen
     });
   }, []);
 

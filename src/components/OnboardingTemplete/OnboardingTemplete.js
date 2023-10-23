@@ -1,4 +1,4 @@
-import {ImageBackground, Image, SafeAreaView, Dimensions} from 'react-native';
+import {ImageBackground, SafeAreaView, Dimensions} from 'react-native';
 import React from 'react';
 import ScalableImage from 'react-native-scalable-image';
 import styles from './OnboardingTemplete.style';
@@ -16,12 +16,12 @@ export default function OnboardingTemplete({
     <SafeAreaView style={styles.container}>
       <ScalableImage
         style={styles.textImage}
-        width={width * 0.9}
+        width={width * 0.8}
         source={item.text}
       />
       <ScalableImage
         style={styles.image}
-        width={width * 0.9}
+        height={height * 0.75}
         source={item.image}
       />
       <CustomButton label={buttonText} onPress={onButtonPressed} />

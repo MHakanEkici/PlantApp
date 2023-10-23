@@ -13,7 +13,7 @@ export default function Features() {
       contentContainerStyle={styles.container}
       bounces={false}>
       {featuresData.map((feature, index) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={index.toString()}>
           <FeatureCard
             icon={feature.icon}
             highlightedLabel={feature.highlightedLabel}

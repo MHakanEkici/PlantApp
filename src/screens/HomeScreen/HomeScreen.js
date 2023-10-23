@@ -1,4 +1,11 @@
-import {View, Text, ScrollView, SafeAreaView, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  SafeAreaView,
+  Alert,
+  FlatList,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useCategories from '../../hooks/useCategories';
 import useQuestions from '../../hooks/useQuestions';
@@ -54,7 +61,7 @@ export default function HomeScreen() {
                 image={question.image_uri}
                 question={question.title}
                 onPress={null}
-                key={question.id}
+                key={question.id.toString()}
               />
             ))}
           </ScrollView>
@@ -62,16 +69,21 @@ export default function HomeScreen() {
         {categoryLoading ? (
           <Loading />
         ) : (
-          <View style={styles.category_list}>
-            {categoryList.map((category, index) => (
+          <FlatList
+            style={styles.categories_container}
+            columnWrapperStyle={styles.category_list}
+            data={categoryList}
+            renderItem={({item, index}) => (
               <CategoryCard
-                image={category.image.url}
-                name={category.name}
+                image={item.image.url}
+                name={item.name}
                 onPress={null}
-                key={category.id}
+                key={item.id.toString()}
               />
-            ))}
-          </View>
+            )}
+            numColumns={2}
+            scrollEnabled={false}
+          />
         )}
       </ScrollView>
     </SafeAreaView>

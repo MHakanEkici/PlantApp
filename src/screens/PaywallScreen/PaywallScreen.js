@@ -19,9 +19,7 @@ export default function PaywallScreen({navigation}) {
 
   useEffect(() => {
     navigation.addListener('beforeRemove', e => {
-      // Prevent default behavior of leaving the screen
       e.preventDefault();
-      // Prompt the user before leaving the screen
     });
   }, []);
 

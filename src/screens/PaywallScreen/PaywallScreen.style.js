@@ -1,7 +1,6 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
 import colors from '../../constants/styles/colors';
 import fontSizes from '../../constants/styles/fontSizes';
-import radius from '../../constants/styles/radius';
 import spacing from '../../constants/styles/spacing';
 import {hasNotch} from 'react-native-device-info';
 
@@ -20,7 +19,7 @@ export default StyleSheet.create({
   },
   frame: {
     marginLeft: spacing.left_main,
-    top: Platform.OS === 'ios' && hasNotch ? height * 0.25 : height * 0.29,
+    top: Platform.OS === 'ios' && hasNotch ? height * 0.27 : height * 0.29,
   },
   title: {
     color: 'white',
@@ -52,7 +51,7 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.5)',
-    fontSize: fontSizes.textSmall - 2.5,
+    fontSize: fontSizes.textSmall - 3.5,
     paddingHorizontal: spacing.left_main,
     position: 'absolute',
   },
