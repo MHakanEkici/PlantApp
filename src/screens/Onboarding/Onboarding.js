@@ -62,8 +62,6 @@ export default function Onboardingg({navigation}) {
         inactiveDotColor={'gray'}
         inactiveDotOpacity={1}
         inactiveDotScale={0.7}
-        carouselRef={refC}
-        tappableDots={!!refC}
       />
     </View>
   );
