@@ -56,12 +56,12 @@ export default function NavigationContainter() {
             <Stack.Screen
               name={routes.ONBOARDING}
               component={Onboarding}
-              options={{headerShown: false}}
+              options={{headerShown: false, gestureEnabled: false}}
             />
             <Stack.Screen
               name={routes.PAYWALL_SCREEN}
               component={PaywallScreen}
-              options={{headerShown: false}}
+              options={{headerShown: false, gestureEnabled: false}}
             />
           </>
         )}

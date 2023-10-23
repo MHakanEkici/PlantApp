@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {View, Text, Image, SafeAreaView} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import onboardingConstants from '../../redux/constants/onboardingConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,10 +12,18 @@ import Features from '../../components/Features';
 import PremiumOptionSection from '../../components/PremiumOptionSection';
 import IconButton from '../../components/IconButton';
 
-export default function PaywallScreen() {
+export default function PaywallScreen({navigation}) {
   const [selectedPremiumOption, setSelectedPremiumOption] = useState('year');
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    navigation.addListener('beforeRemove', e => {
+      // Prevent default behavior of leaving the screen
+      e.preventDefault();
+      // Prompt the user before leaving the screen
+    });
+  }, []);
 
   async function handleSetOnboardingSkipped() {
     dispatch({

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {View, Dimensions} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import routes from '../../navigation/routes';
 import onboardingPagesData from '../../constants/OnboardingPagesData';
 import styles from './Onboarding.style';
@@ -27,6 +28,14 @@ export default function Onboardingg({navigation}) {
       key={index}
     />
   );
+
+  useEffect(() => {
+    navigation.addListener('beforeRemove', e => {
+      // Prevent default behavior of leaving the screen
+      e.preventDefault();
+      // Prompt the user before leaving the screen
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
